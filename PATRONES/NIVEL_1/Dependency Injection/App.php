@@ -24,10 +24,10 @@ recordatorio($cartera);
 $llaves = new LlavesCasa();
 recordatorio($llaves);
 
-match (rand(1,3)) {
-    1 => $tokenTransporte = new LlavesCoche(),
-    2 => $tokenTransporte = new LlavesMoto(),
-    3 => $tokenTransporte = new TarjetaTmb(),
+$tokenTransporte = match (rand(1,3)) {
+    1 => new LlavesCoche(),
+    2 => new LlavesMoto(),
+    3 => new TarjetaTmb(),
 };
 recordatorio($tokenTransporte);
 
