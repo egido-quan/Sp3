@@ -9,25 +9,16 @@ include "Movil.php";
 include "TarjetaTmb.php";
 include "Cartera.php";
 
-function recordatorio(Pokayoke $pokayoke) {
-    $Recordatorio = new SalirDeCasa($pokayoke);
-echo $Recordatorio->alSalirDeCasa();
-}
 
+$pokayokes = array(new Movil(), new Cartera(), new LlavesCasa());
 
-$movil = new Movil();
-recordatorio($movil);
-
-$cartera = new Cartera();
-recordatorio($cartera);
-
-$llaves = new LlavesCasa();
-recordatorio($llaves);
-
-$tokenTransporte = match (rand(1,3)) {
+$pokayokes[] = match (rand(1,3)) {
     1 => new LlavesCoche(),
     2 => new LlavesMoto(),
     3 => new TarjetaTmb(),
 };
-recordatorio($tokenTransporte);
+
+$hoy = new SalirDeCasa($pokayokes);
+$hoy->alSalirDeCasa();
+
 

@@ -1,12 +1,13 @@
 <?php
 
 class SalirDeCasa {
-    private $pokayoke;
+    private array $pokayokes;
 
-    public function __construct(Pokayoke $pokayoke) {
-        $this->pokayoke = $pokayoke;        
+    public function __construct(array $pokayokes) {
+        $this->pokayokes = $pokayokes;        
     }    
     public function alSalirDeCasa() {
-        return $this->pokayoke->recordatorio();        
+        foreach($this->pokayokes as $pokayoke)
+        echo $pokayoke->recordatorio() . PHP_EOL;        
     }
 }
